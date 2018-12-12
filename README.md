@@ -1,3 +1,22 @@
+# three2jsx
+
+This project is right now just work in progress. It's kind of a basic setup to experiment with three.js in react using jsx.
+From the performance perspective react.js might not be a perfect fit for using three.js/webgl but I just like the jsx style to compose lights, geometry and much more.
+
+There are a bunch of improvents that need to be done before I'll release it as a package to npm, e.g.
+
+- Use context API to pass the sceene to even deeper nested meshes
+- Own components for camera, material, geometry, modifier
+- Mesh modifiers
+  - Wrap existing modifiers like subdivision surface
+  - Implement new modifiers like subdivision bevel
+- Geometry
+  - Wrap existing geometry
+  - New primitives
+- cleanup
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,3 +1,5 @@
+$ratio: 0.6180339887498547;
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +13,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container-right {
+  position: absolute;
+  margin-left: percentage($ratio);
+  width: percentage(1-$ratio);
+  height: 100%;
+  color: white;
 }
