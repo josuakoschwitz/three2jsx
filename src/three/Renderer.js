@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as THREE from "three";
 
+export const RenderContext = React.createContext({});
+
 class Renderer extends Component {
   static propTypes = {
     antialias: PropTypes.bool,
@@ -13,40 +15,37 @@ class Renderer extends Component {
     antialias: true
   };
 
-  state = {};
-
   wrapper = React.createRef();
 
-  componentWillMount() {
-    const { antialias } = this.props;
-    this.renderer = new THREE.WebGLRenderer({ antialias });
+  state = {
+    renderer: new THREE.WebGLRenderer({ antialias: this.props.antialias })
+  };
+
+  static getDerivedStateFromProps(nextProps) {
+    const { antialias, ...addToContext } = nextProps;
+    return addToContext; // REVIEW IF THIS IS REALLY BAD PRACTICE OR OKAY IN THIS PLACE!
   }
 
   render() {
-    const { width, height } = this.props;
-    this.renderer.setSize(width, height);
+    this.state.renderer.setSize(this.props.width, this.props.height);
+
     return (
       <div ref={this.wrapper}>
-        {React.Children.map(this.props.children, child =>
-          React.cloneElement(child, {
-            renderer: this.renderer,
-            width: this.props.width,
-            height: this.props.height,
-            timestamp: this.state.timestamp
-          })
-        )}
+        <RenderContext.Provider value={this.state}>
+          {this.props.children}
+        </RenderContext.Provider>
       </div>
     );
   }
 
+  // connect to the dom element
   componentDidMount() {
-    console.log(this.wrapper);
-    this.wrapper.current.appendChild(this.renderer.domElement);
+    this.wrapper.current.appendChild(this.state.renderer.domElement);
     this.frameId = requestAnimationFrame(this.animate);
   }
 
   componentWillUnmount() {
-    this.wrapper.current.removeChild(this.renderer.domElement);
+    this.wrapper.current.removeChild(this.state.renderer.domElement);
     cancelAnimationFrame(this.frameId);
   }
 
