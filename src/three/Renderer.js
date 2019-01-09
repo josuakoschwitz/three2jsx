@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as THREE from "three";
+import propsFromContext from "../lib/propsFromContext";
 
 export const RenderContext = React.createContext({});
+export const withRenderContext = Component =>
+  propsFromContext(Component, RenderContext);
 
 class Renderer extends Component {
   static propTypes = {
     antialias: PropTypes.bool,
     width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired
+    height: PropTypes.number.isRequired,
+    onAnimate: PropTypes.func
   };
 
   static defaultProps = {
-    antialias: true
+    antialias: true,
+    onAnimate: () => {}
   };
 
   wrapper = React.createRef();
@@ -51,6 +56,7 @@ class Renderer extends Component {
 
   animate = timestamp => {
     this.setState({ timestamp });
+    this.props.onAnimate(timestamp);
     requestAnimationFrame(this.animate);
   };
 }

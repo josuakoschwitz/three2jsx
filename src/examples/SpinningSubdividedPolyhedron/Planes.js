@@ -1,5 +1,6 @@
 import { PureComponent } from "react";
 import * as THREE from "three";
+import { withSceneContext } from "../../three/Scene";
 
 class Planes extends PureComponent {
   componentWillMount() {
@@ -38,4 +39,4 @@ class Planes extends PureComponent {
   }
 }
 
-export default Planes;
+export default withSceneContext(Planes);

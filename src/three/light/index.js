@@ -1,6 +1,7 @@
 import { PureComponent } from "react";
 import PropTypes from "prop-types";
 import * as THREE from "three";
+import { withSceneContext } from "../Scene";
 
 class Light extends PureComponent {
   static propTypes = {
@@ -44,4 +45,4 @@ class Light extends PureComponent {
   }
 }
 
-export default Light;
+export default withSceneContext(Light);

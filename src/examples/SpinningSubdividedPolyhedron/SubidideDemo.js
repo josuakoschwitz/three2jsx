@@ -2,6 +2,7 @@ import { PureComponent } from "react";
 import * as THREE from "three";
 import SubdivisionModifier from "three-subdivision-modifier";
 import _ from "lodash";
+import { withSceneContext } from "../../three/Scene";
 
 const material = new THREE.MeshPhysicalMaterial({
   color: 0xdddddd,
@@ -105,4 +106,4 @@ class SubidideDemo extends PureComponent {
   }
 }
 
-export default SubidideDemo;
+export default withSceneContext(SubidideDemo);

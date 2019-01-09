@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import _ from "lodash";
 
-import SpinningSubdividedPolyhedron from "./compositions/SpinningSubdividedPolyhedron";
+import SpinningSubdividedPolyhedron from "./examples/SpinningSubdividedPolyhedron";
 
 // import Radio from "@material-ui/core/Radio";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
