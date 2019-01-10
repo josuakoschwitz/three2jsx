@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import * as THREE from "three";
+import OrbitControls from "three-orbitcontrols";
 
 import propsFromContext from "../lib/propsFromContext";
 import { RenderContext } from "./Renderer";
@@ -16,6 +17,8 @@ class Camera extends PureComponent {
     const { x, y, z, width, height } = this.props;
     this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     this.camera.position.set(x, y, z);
+    this.controls = new OrbitControls(this.camera);
+    // this.controls.update();
   }
 
   render() {
