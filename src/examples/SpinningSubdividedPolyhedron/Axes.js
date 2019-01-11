@@ -39,7 +39,7 @@ function material(color) {
   });
 }
 
-function arrow(color, direction, length = 7, width = 0.1) {
+function arrow(color, direction, length = 10, width = 0.1) {
   const r = width / 2;
   const rt = 2.5 * r;
   const lt = 2.5 * rt;
@@ -54,7 +54,7 @@ function arrow(color, direction, length = 7, width = 0.1) {
   return new THREE.Mesh(geometry, material(color));
 }
 
-function lineArray(color, direction, size = 40) {
+function lineArray(color, direction, size = 100) {
   size = Math.floor(size);
   const geometry = new THREE.Geometry();
   for (let i = -size; i <= size; i++) {

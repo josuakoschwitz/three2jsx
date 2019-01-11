@@ -149,7 +149,7 @@ export const piano = [
       {
         arcLength: 1,
         arcHeight: 3,
-        depth: 1.4,
+        depth: 1.6,
         color: 0x111111,
         children: []
       },
@@ -162,7 +162,7 @@ export const piano = [
       {
         arcLength: 1,
         arcHeight: 3,
-        depth: 1.4,
+        depth: 1.6,
         color: 0x111111,
         children: []
       },
@@ -175,7 +175,7 @@ export const piano = [
       {
         arcLength: 1,
         arcHeight: 3,
-        depth: 1.4,
+        depth: 1.6,
         color: 0x111111,
         children: []
       },
@@ -194,7 +194,7 @@ export const piano = [
       {
         arcLength: 1,
         arcHeight: 3,
-        depth: 1.4,
+        depth: 1.6,
         color: 0x111111,
         children: []
       },
@@ -207,7 +207,7 @@ export const piano = [
       {
         arcLength: 1,
         arcHeight: 3,
-        depth: 1.4,
+        depth: 1.6,
         color: 0x111111,
         children: []
       },

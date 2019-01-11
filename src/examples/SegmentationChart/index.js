@@ -26,9 +26,9 @@ class SpinningSubdividedPolyhedron extends PureComponent {
         <Scene background={0x110033} fog={0x110033}>
           <Camera x={-1} y={8} z={10} />
           <Light type="ambient" color={0xaaaaaa} />
-          <Light type="directional" color={0xffffff} y={5} z={10} />
+          <Light type="directional" color={0xffffff} x={5} y={-5} z={10} />
           <Light type="directional" color={0xffffff} x={5} y={5} z={-10} />
-          {/* <Axes /> */}
+          <Axes />
           <Chart {...others} />
         </Scene>
       </Renderer>

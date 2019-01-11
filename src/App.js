@@ -71,28 +71,30 @@ class App extends Component {
             value={this.state.morph}
             onChange={this.handleChange.bind(this, "morph")}
           /> */}
-          <Button
-            color="secondary"
-            label="morph to donut"
-            onClick={() => this.setState({ morphAnimate: -1.5 })}
-          />
-          <Button
-            color="secondary"
-            label="morph to bars"
-            onClick={() => this.setState({ morphAnimate: 1.5 })}
-          />
-          <br />
-          <br />
-          <Button
-            color="secondary"
-            label="prev example"
-            onClick={this.handleChangeExample.bind(this, -1)}
-          />
-          <Button
-            color="secondary"
-            label="next example"
-            onClick={this.handleChangeExample.bind(this, +1)}
-          />
+          <div>
+            <Button
+              color="secondary"
+              label="morph to donut"
+              onClick={() => this.setState({ morphAnimate: -1.5 })}
+            />
+            <Button
+              color="secondary"
+              label="morph to bars"
+              onClick={() => this.setState({ morphAnimate: 1.5 })}
+            />
+          </div>
+          <div>
+            <Button
+              color="secondary"
+              label="prev example"
+              onClick={this.handleChangeExample.bind(this, -1)}
+            />
+            <Button
+              color="secondary"
+              label="next example"
+              onClick={this.handleChangeExample.bind(this, +1)}
+            />
+          </div>
         </div>
         <div ref={this.three} className="container-left shadow">
           <SegmentationChart
