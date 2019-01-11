@@ -35,8 +35,8 @@ class App extends Component {
       let { morph, morphAnimate } = state;
       if (morphAnimate !== 0) {
         morph += sec / morphAnimate;
-        if (morph > 0.99) {
-          morph = 0.99;
+        if (morph > 0.999) {
+          morph = 0.999;
           morphAnimate = 0;
         }
 
