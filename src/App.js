@@ -8,14 +8,16 @@ import Button from "./ui/Button";
 import SpinningSubdividedPolyhedron from "./examples/SpinningSubdividedPolyhedron";
 import SegmentationChart from "./examples/SegmentationChart";
 
-import { example1 } from "./constants/chartExamples";
+import { example1, radioactive } from "./constants/chartExamples";
+const examples = [example1, radioactive];
 
 class App extends Component {
   state = {
     morph: 0,
     morphAnimate: 0,
     threeWidth: window.innerWidth,
-    timestamp: 0
+    timestamp: 0,
+    exampleNr: 0
   };
 
   three = React.createRef();
@@ -50,26 +52,40 @@ class App extends Component {
     });
   };
 
+  handleChangeExample = () => {
+    this.setState(state => ({
+      morph: 0,
+      morphAnimate: 0,
+      exampleNr: (state.exampleNr + 1) % examples.length
+    }));
+  };
+
   render() {
     return (
       <div ref={this.control}>
         <div className="container-right">
-          <Slider
+          {/* <Slider
             label="Donut … Bars"
             min={0}
             max={0.999}
             value={this.state.morph}
             onChange={this.handleChange.bind(this, "morph")}
+          /> */}
+          <Button
+            color="secondary"
+            label="morph to donut"
+            onClick={() => this.setState({ morphAnimate: -1.5 })}
           />
           <Button
             color="secondary"
-            label="donut"
-            onClick={() => this.setState({ morphAnimate: -2 })}
+            label="morph to bars"
+            onClick={() => this.setState({ morphAnimate: 1.5 })}
           />
+          <br />
           <Button
             color="secondary"
-            label="bars"
-            onClick={() => this.setState({ morphAnimate: 2 })}
+            label="next example"
+            onClick={this.handleChangeExample}
           />
         </div>
         <div ref={this.three} className="container-left shadow">
@@ -77,7 +93,7 @@ class App extends Component {
             onAnimate={this.animationFrame}
             width={this.state.threeWidth}
             height={window.innerHeight}
-            data={example1}
+            data={examples[this.state.exampleNr]}
             morph={this.state.morph}
           />
         </div>
