@@ -1,4 +1,4 @@
-$ratio: 0.6180339887498547;
+$ratio: 0.8;
 
 body {
   margin: 0;
@@ -17,8 +17,18 @@ code {
 
 .container-right {
   position: absolute;
-  margin-left: percentage($ratio);
+  // margin: 1rem;
+  padding: 1rem;
+  z-index: 500;
+  right: 0;
   width: percentage(1-$ratio);
+  right: 0;
+  min-width: 15rem;
   height: 100%;
-  color: white;
+  background: rgba(white, 0.2);
+}
+
+.container-left {
+  width: percentage($ratio);
+  // width: 100%;
 }
