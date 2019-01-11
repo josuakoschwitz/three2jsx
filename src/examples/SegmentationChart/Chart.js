@@ -72,8 +72,8 @@ function createSegment(amount, inner, outer, start, end, height) {
     end * arcFactor + arcOff,
     height
   );
-  segment.translate(0, -radiusOff - amount * assumedHeight * 0.8, 0);
-  segment.rotateX(arcOff * Math.PI);
+  segment.translate(0, -radiusOff /* - amount * assumedHeight * 0.5 */, 0);
+  segment.rotateX(arcOff * 2 * Math.PI);
   return segment;
 }
 

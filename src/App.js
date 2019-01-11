@@ -7,9 +7,7 @@ import Button from "./ui/Button";
 // three scenes
 import SpinningSubdividedPolyhedron from "./examples/SpinningSubdividedPolyhedron";
 import SegmentationChart from "./examples/SegmentationChart";
-
-import { example1, radioactive, piano } from "./constants/chartExamples";
-const examples = [example1, radioactive, piano];
+import examples from "./examples/SegmentationChart/exampleCharts";
 
 class App extends Component {
   state = {
