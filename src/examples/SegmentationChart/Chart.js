@@ -56,8 +56,13 @@ function createArc(inner, outer, start, end, height) {
 function createSegment(amount, inner, outer, start, end, height) {
   const arcFactor = 1 - amount;
   const arcOff = Math.max(0, amount - 0.5) / 2;
-  const radiusOff = 0;
 
+  // experimental
+  const assumedHeight = 7.8;
+  const radiusOff = 5 * (2 ** amount - 1);
+
+  console.log(arcFactor, radiusOff);
+  // 0.9 --- 15
   // 0.99 --- 150
 
   // equal volumes in radar
@@ -72,7 +77,7 @@ function createSegment(amount, inner, outer, start, end, height) {
     height
   );
   segment.translate(0, -radiusOff, 0);
-  // segment.rotateX(2 * arcOff * Math.PI);
+  segment.rotateX(2 * arcOff * Math.PI);
   return segment;
 }
 
