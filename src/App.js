@@ -8,8 +8,8 @@ import Button from "./ui/Button";
 import SpinningSubdividedPolyhedron from "./examples/SpinningSubdividedPolyhedron";
 import SegmentationChart from "./examples/SegmentationChart";
 
-import { example1, radioactive } from "./constants/chartExamples";
-const examples = [example1, radioactive];
+import { example1, radioactive, piano } from "./constants/chartExamples";
+const examples = [example1, radioactive, piano];
 
 class App extends Component {
   state = {
@@ -52,11 +52,11 @@ class App extends Component {
     });
   };
 
-  handleChangeExample = () => {
+  handleChangeExample = inc => {
     this.setState(state => ({
       morph: 0,
       morphAnimate: 0,
-      exampleNr: (state.exampleNr + 1) % examples.length
+      exampleNr: (state.exampleNr + examples.length + inc) % examples.length
     }));
   };
 
@@ -82,10 +82,16 @@ class App extends Component {
             onClick={() => this.setState({ morphAnimate: 1.5 })}
           />
           <br />
+          <br />
+          <Button
+            color="secondary"
+            label="prev example"
+            onClick={this.handleChangeExample.bind(this, -1)}
+          />
           <Button
             color="secondary"
             label="next example"
-            onClick={this.handleChangeExample}
+            onClick={this.handleChangeExample.bind(this, +1)}
           />
         </div>
         <div ref={this.three} className="container-left shadow">
