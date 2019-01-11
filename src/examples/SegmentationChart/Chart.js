@@ -59,7 +59,8 @@ function createSegment(amount, inner, outer, start, end, height) {
 
   // experimental
   const assumedHeight = 7.8;
-  const radiusOff = 5 * (2 ** amount - 1);
+  // const radiusOff = 5 * (2 ** amount - 1);
+  const radiusOff = (assumedHeight * (1 / arcFactor - 1)) / 4;
 
   console.log(arcFactor, radiusOff);
   // 0.9 --- 15
